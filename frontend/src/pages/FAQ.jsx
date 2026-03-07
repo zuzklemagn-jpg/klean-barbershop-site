@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEOHead from "../components/SEOHead";
+import BookButton from "../components/BookButton";
+import { trackPageView } from "../utils/analytics";
 import {
   Accordion,
   AccordionContent,
@@ -24,8 +28,14 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  useEffect(() => {
+    trackPageView("faq");
+  }, []);
+
   return (
     <div data-testid="faq-page" className="pt-24 bg-obsidian">
+      <SEOHead page="faq" />
+      
       {/* Hero */}
       <section className="section-spacing">
         <div className="section-container">

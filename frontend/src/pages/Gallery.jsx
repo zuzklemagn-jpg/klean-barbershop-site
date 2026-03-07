@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X, ZoomIn } from "lucide-react";
+import SEOHead from "../components/SEOHead";
+import BookButton from "../components/BookButton";
+import { trackPageView } from "../utils/analytics";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -32,12 +35,18 @@ const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    trackPageView("gallery");
+  }, []);
+
   const filteredImages = activeCategory === "all" 
     ? galleryImages 
     : galleryImages.filter(img => img.category === activeCategory);
 
   return (
     <div data-testid="gallery-page" className="pt-24 bg-obsidian">
+      <SEOHead page="gallery" />
+      
       {/* Hero */}
       <section className="section-spacing">
         <div className="section-container">

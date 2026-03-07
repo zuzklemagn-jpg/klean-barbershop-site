@@ -1,5 +1,9 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Scissors, Sparkles, Crown } from "lucide-react";
+import SEOHead from "../components/SEOHead";
+import BookButton from "../components/BookButton";
+import { trackPageView } from "../utils/analytics";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -66,8 +70,15 @@ const ServiceCard = ({ service, index }) => (
 );
 
 const Services = () => {
+  // Track page view on mount
+  useEffect(() => {
+    trackPageView("services");
+  }, []);
+
   return (
     <div data-testid="services-page" className="pt-24 bg-obsidian">
+      <SEOHead page="services" />
+      
       {/* Hero */}
       <section className="section-spacing">
         <div className="section-container">

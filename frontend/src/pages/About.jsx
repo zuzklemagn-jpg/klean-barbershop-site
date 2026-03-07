@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Award, Users, Heart, Scissors } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEOHead from "../components/SEOHead";
+import BookButton from "../components/BookButton";
+import { trackPageView } from "../utils/analytics";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -12,8 +16,14 @@ const values = [
 ];
 
 const About = () => {
+  useEffect(() => {
+    trackPageView("about");
+  }, []);
+
   return (
     <div data-testid="about-page" className="pt-24 bg-obsidian">
+      <SEOHead page="about" />
+      
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">

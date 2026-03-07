@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
@@ -6,9 +7,12 @@ import {
   Sparkles, 
   ChevronRight,
   Star,
-  ArrowRight,
   Clock
 } from "lucide-react";
+import SEOHead from "../components/SEOHead";
+import BookButton from "../components/BookButton";
+import GoogleReviewsWidget from "../components/GoogleReviewsWidget";
+import { trackPageView } from "../utils/analytics";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -27,8 +31,15 @@ const staggerContainer = {
 };
 
 const Home = () => {
+  // Track page view on mount
+  useEffect(() => {
+    trackPageView("home");
+  }, []);
+
   return (
     <div data-testid="home-page" className="bg-obsidian">
+      <SEOHead page="home" />
+      
       {/* ==================== HERO SECTION ==================== */}
       <section 
         data-testid="hero-section"
@@ -38,7 +49,7 @@ const Home = () => {
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1503951914875-452162b7f300?q=80&w=2070&auto=format&fit=crop"
-            alt="KLEAN Barbershop"
+            alt="KLEAN Barbershop - Barbier Premium Tigery"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 hero-overlay" />
@@ -54,11 +65,8 @@ const Home = () => {
             className="max-w-4xl mx-auto"
           >
             {/* Premium Label */}
-            <motion.div 
-              variants={fadeInUp}
-              className="mb-8"
-            >
-              <span className="premium-label">Barbershop Premium • Tigery</span>
+            <motion.div variants={fadeInUp} className="mb-8">
+              <span className="premium-label">Barbershop Premium • Tigery (91)</span>
             </motion.div>
             
             {/* Main Title */}
@@ -87,16 +95,9 @@ const Home = () => {
             
             {/* CTA Button */}
             <motion.div variants={fadeInUp}>
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="hero-book-btn"
-                className="btn-book inline-flex items-center gap-3"
-              >
-                <span>Réserver un rendez-vous</span>
-                <ArrowRight size={18} />
-              </a>
+              <BookButton source="hero">
+                Réserver un rendez-vous
+              </BookButton>
             </motion.div>
           </motion.div>
         </div>
@@ -161,7 +162,7 @@ const Home = () => {
               <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                  alt="Barbier professionnel au travail"
+                  alt="Barbier professionnel - Coupe homme Tigery"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -244,14 +245,9 @@ const Home = () => {
                     <Clock size={14} />
                     <span>{service.duration}</span>
                   </div>
-                  <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-300 transition-colors"
-                  >
-                    Réserver →
-                  </a>
+                  <BookButton source={`services-${service.title}`} variant="secondary" size="small" className="!p-0 !border-0">
+                    <span className="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-300">Réserver</span>
+                  </BookButton>
                 </div>
               </motion.div>
             ))}
@@ -275,6 +271,9 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ==================== GOOGLE REVIEWS WIDGET ==================== */}
+      <GoogleReviewsWidget />
+
       {/* ==================== WHY US SECTION ==================== */}
       <section data-testid="why-us-section" className="section-spacing bg-obsidian">
         <div className="section-container">
@@ -289,7 +288,7 @@ const Home = () => {
               <div className="aspect-square overflow-hidden">
                 <img
                   src="https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                  alt="Intérieur du salon KLEAN"
+                  alt="Intérieur salon barbier Tigery - KLEAN Barbershop"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -379,7 +378,7 @@ const Home = () => {
               >
                 <img
                   src={img.src}
-                  alt={`Ambiance salon ${index + 1}`}
+                  alt={`Ambiance salon barbier Tigery ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -388,92 +387,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ==================== TESTIMONIALS SECTION ==================== */}
-      <section data-testid="testimonials-section" className="section-spacing bg-obsidian">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <span className="premium-label mb-6 block">Témoignages</span>
-            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mb-6">
-              Avis clients
-            </h2>
-            <div className="gold-divider mx-auto" />
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                text: "Dégradé parfait et coupe très propre. Super accueil et salon magnifique. Je ne vais plus ailleurs !",
-                author: "Maxime D.",
-                service: "Coupe + Dégradé"
-              },
-              {
-                text: "Très professionnel. Un des meilleurs barbers du secteur. Le salon est vraiment classe.",
-                author: "Karim B.",
-                service: "Coupe classique"
-              },
-              {
-                text: "Excellent travail sur la barbe et la coupe. Le rasage traditionnel est une vraie expérience.",
-                author: "Thomas L.",
-                service: "Coupe + Barbe"
-              }
-            ].map((review, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                className="glass-card p-10 relative"
-              >
-                {/* Quote mark */}
-                <div className="absolute top-6 right-6 text-gold-500/10 font-elegant text-8xl leading-none">
-                  "
-                </div>
-                
-                <div className="flex gap-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-gold-500 text-gold-500" />
-                  ))}
-                </div>
-                
-                <p className="text-neutral-300 mb-8 leading-relaxed relative z-10">
-                  "{review.text}"
-                </p>
-                
-                <div className="pt-6 border-t border-white/5">
-                  <span className="text-white font-medium block">{review.author}</span>
-                  <span className="text-neutral-600 text-sm">{review.service}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <Link
-              to="/avis"
-              data-testid="testimonials-view-all-btn"
-              className="group inline-flex items-center gap-3 text-gold-400 hover:text-gold-300 transition-colors"
-            >
-              <span className="text-sm uppercase tracking-[0.2em]">Voir tous les avis</span>
-              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ==================== CTA SECTION ==================== */}
-      <section data-testid="cta-section" className="section-spacing bg-charcoal relative overflow-hidden">
+      <section data-testid="cta-section" className="section-spacing bg-obsidian relative overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
           <img 
@@ -481,7 +396,7 @@ const Home = () => {
             alt=""
             className="w-full h-full object-cover opacity-10"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/95 to-charcoal" />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/95 to-obsidian" />
         </div>
         
         <div className="section-container relative z-10">
@@ -501,16 +416,9 @@ const Home = () => {
               propre et stylée ?
             </p>
             
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="cta-book-btn"
-              className="btn-book inline-flex items-center gap-3"
-            >
-              <span>Réserver mon rendez-vous</span>
-              <ArrowRight size={18} />
-            </a>
+            <BookButton source="cta-home">
+              Réserver mon rendez-vous
+            </BookButton>
           </motion.div>
         </div>
       </section>

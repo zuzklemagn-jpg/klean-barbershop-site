@@ -1,5 +1,9 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Quote } from "lucide-react";
+import SEOHead from "../components/SEOHead";
+import BookButton from "../components/BookButton";
+import { trackPageView } from "../utils/analytics";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -16,8 +20,14 @@ const reviews = [
 ];
 
 const Reviews = () => {
+  useEffect(() => {
+    trackPageView("reviews");
+  }, []);
+
   return (
     <div data-testid="reviews-page" className="pt-24 bg-obsidian">
+      <SEOHead page="reviews" />
+      
       {/* Hero */}
       <section className="section-spacing">
         <div className="section-container">

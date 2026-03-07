@@ -1,5 +1,9 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Heart, Wind, Droplets, Hand, Crown } from "lucide-react";
+import SEOHead from "../components/SEOHead";
+import BookButton from "../components/BookButton";
+import { trackPageView } from "../utils/analytics";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -18,8 +22,14 @@ const vipFeatures = [
 ];
 
 const VipExperience = () => {
+  useEffect(() => {
+    trackPageView("vip");
+  }, []);
+
   return (
     <div data-testid="vip-page" className="pt-24 bg-obsidian">
+      <SEOHead page="vip" />
+      
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">

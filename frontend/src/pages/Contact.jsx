@@ -1,5 +1,9 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Clock, Instagram, ExternalLink } from "lucide-react";
+import SEOHead from "../components/SEOHead";
+import BookButton from "../components/BookButton";
+import { trackPageView } from "../utils/analytics";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -20,8 +24,14 @@ const hours = [
 ];
 
 const Contact = () => {
+  useEffect(() => {
+    trackPageView("contact");
+  }, []);
+
   return (
     <div data-testid="contact-page" className="pt-24 bg-obsidian">
+      <SEOHead page="contact" />
+      
       {/* Hero */}
       <section className="section-spacing">
         <div className="section-container">
