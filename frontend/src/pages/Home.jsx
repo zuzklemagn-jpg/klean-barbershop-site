@@ -13,8 +13,7 @@ import SEOHead from "../components/SEOHead";
 import BookButton from "../components/BookButton";
 import GoogleReviewsWidget from "../components/GoogleReviewsWidget";
 import { trackPageView } from "../utils/analytics";
-
-const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
+import { heroImages, sectionImages, ambianceImages } from "../config/images";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -48,7 +47,7 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1503951914875-452162b7f300?q=80&w=2070&auto=format&fit=crop"
+            src={heroImages.main}
             alt="KLEAN Barbershop - Barbier Premium Tigery"
             className="w-full h-full object-cover"
           />
@@ -161,7 +160,7 @@ const Home = () => {
             >
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  src={sectionImages.aboutBarbier}
                   alt="Barbier professionnel - Coupe homme Tigery"
                   className="w-full h-full object-cover"
                 />
@@ -287,7 +286,7 @@ const Home = () => {
             >
               <div className="aspect-square overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  src={sectionImages.whyUsInterior}
                   alt="Intérieur salon barbier Tigery - KLEAN Barbershop"
                   className="w-full h-full object-cover"
                 />
@@ -362,23 +361,21 @@ const Home = () => {
 
           {/* Premium image grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {[
-              { src: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", span: "col-span-2 row-span-2" },
-              { src: "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", span: "" },
-              { src: "https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", span: "" },
-              { src: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", span: "col-span-2" }
-            ].map((img, index) => (
+            {ambianceImages.map((img, index) => (
               <motion.div
-                key={index}
+                key={img.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`gallery-item aspect-square ${img.span} overflow-hidden cursor-pointer`}
+                className={`gallery-item aspect-square ${
+                  img.size === 'large' ? 'col-span-2 row-span-2' : 
+                  img.size === 'wide' ? 'col-span-2' : ''
+                } overflow-hidden cursor-pointer`}
               >
                 <img
                   src={img.src}
-                  alt={`Ambiance salon barbier Tigery ${index + 1}`}
+                  alt={img.alt}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -392,7 +389,7 @@ const Home = () => {
         {/* Background */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            src={heroImages.ctaBackground}
             alt=""
             className="w-full h-full object-cover opacity-10"
           />
