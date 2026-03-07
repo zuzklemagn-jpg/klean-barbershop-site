@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, Award, Users, Heart, Scissors } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEOHead from "../components/SEOHead";
-import BookButton from "../components/BookButton";
+import BookButton, { BOOKING_URL } from "../components/BookButton";
 import { trackPageView } from "../utils/analytics";
-
-const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
+import { sectionImages, KLEAN_IMAGES } from "../config/images";
 
 const values = [
   { icon: Scissors, title: "Excellence", description: "Chaque coupe est réalisée avec précision et attention aux détails." },
@@ -28,8 +27,8 @@ const About = () => {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt="Salon KLEAN"
+            src={KLEAN_IMAGES.interieur}
+            alt="Salon KLEAN Barbershop Tigery"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/95 to-obsidian/80" />
@@ -99,9 +98,9 @@ const About = () => {
             >
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  alt="Barbier KLEAN au travail"
-                  className="w-full h-full object-cover"
+                  src={sectionImages.aboutBarbier}
+                  alt="Barbier KLEAN - Portrait professionnel"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-full h-full border border-gold-500/20 -z-10" />
@@ -162,15 +161,15 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="aspect-square overflow-hidden">
                   <img
-                    src="https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    alt="Intérieur salon"
+                    src={KLEAN_IMAGES.interieur}
+                    alt="Intérieur salon KLEAN"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="aspect-square overflow-hidden mt-8">
                   <img
-                    src="https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    alt="Détail équipement"
+                    src={KLEAN_IMAGES.barbe1}
+                    alt="Rasage traditionnel"
                     className="w-full h-full object-cover"
                   />
                 </div>

@@ -102,7 +102,7 @@ const GoogleReviewCard = ({ review, index }) => (
 
 const GoogleReviewsWidget = () => {
   const averageRating = 5.0;
-  const totalReviews = 200;
+  const totalReviews = 40;
 
   return (
     <section data-testid="google-reviews-widget" className="section-spacing bg-charcoal">

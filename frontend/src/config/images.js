@@ -2,244 +2,231 @@
 // CONFIGURATION DES IMAGES - KLEAN BARBERSHOP
 // ============================================================
 // 
-// Pour remplacer les images placeholder par vos vraies photos :
-// 1. Uploadez vos images (Cloudinary, Imgur, ou hébergeur)
-// 2. Remplacez les URLs ci-dessous par vos URLs
-// 3. Les changements seront automatiquement appliqués sur tout le site
-//
-// Formats recommandés :
-// - Format : JPG ou WebP
-// - Taille : 1200x800px minimum pour la galerie
-// - Poids : < 500Ko par image pour une bonne performance
+// Photos officielles du salon KLEAN Barbershop
+// Mise à jour : Mars 2026
 //
 // ============================================================
+
+// ==================== URLS DES IMAGES OFFICIELLES ====================
+
+const KLEAN_IMAGES = {
+  // === LOGO ===
+  logo: "https://customer-assets.emergentagent.com/job_fce9c548-9710-46e0-a4cc-cb239f3ab916/artifacts/xln7yk79_KleanLogo.jpg",
+  
+  // === IMAGES PRINCIPALES ===
+  
+  // Hero - Barbier au travail avec client (tresses)
+  prestation2: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/4ncrlub3_prestation2.png",
+  
+  // Rasage barbe - Rasoir traditionnel manche bois
+  barbe1: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/ifyvw27w_barbe1.png",
+  
+  // Portrait du barbier avec logo KLEAN
+  coiffeur: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/kn7fgtyr_coiffeur.png",
+  
+  // Intérieur du salon - Fauteuils et ring light
+  interieur: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/mg986bps_interieur.png",
+  
+  // Contour précis - Hairline tondeuse
+  contour: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/p1ahpprq_contour.jpg",
+  
+  // Façade du salon KLEAN avec enseigne
+  facade: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/wc98jgcu_facade.jpg",
+  
+  // Dégradé classique - Coupe afro
+  degrade1: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/zhyaom9z_degrade1.jpg",
+  
+  // Dégradé espagnol - Coupe texturée
+  degradeEspagnol: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/4ppi5fg5_degradeespagnol.jpg",
+  
+  // Tresses / Nattes avec dégradé
+  nattes1: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/aqf35940_nattes1.jpg",
+  
+  // Taper fade - Coupe moderne
+  taper1: "https://customer-assets.emergentagent.com/job_barbershop-premium-1/artifacts/qom2w6om_taper1.jpg",
+  
+  // Taper fade 2 - Coupe moderne
+  taper2: "https://customer-assets.emergentagent.com/job_fce9c548-9710-46e0-a4cc-cb239f3ab916/artifacts/hajoe9bg_taper2.jpg",
+  
+  // Tondeuses professionnelles - Outils premium
+  tondeuses: "https://customer-assets.emergentagent.com/job_fce9c548-9710-46e0-a4cc-cb239f3ab916/artifacts/xktno822_tondeuses.jpg",
+};
 
 // ==================== IMAGES HERO & SECTIONS ====================
 
 export const heroImages = {
-  // Image principale du hero (page d'accueil)
-  // Taille recommandée : 1920x1080px ou plus
-  main: "https://images.unsplash.com/photo-1503951914875-452162b7f300?q=80&w=2070&auto=format&fit=crop",
+  // Image principale du hero (page d'accueil) - Barbier travaillant sur tresses
+  main: KLEAN_IMAGES.prestation2,
   
   // Image de fond pour les CTA
-  ctaBackground: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  ctaBackground: KLEAN_IMAGES.interieur,
 };
 
 export const sectionImages = {
-  // Section "À propos" - Image barbier au travail
-  aboutBarbier: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  // Section "À propos" - Portrait du barbier avec logo KLEAN
+  aboutBarbier: KLEAN_IMAGES.coiffeur,
   
-  // Section "Pourquoi nous choisir" - Intérieur salon
-  whyUsInterior: "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  // Section "Pourquoi nous choisir" - Intérieur salon élégant
+  whyUsInterior: KLEAN_IMAGES.interieur,
   
-  // Section "Expérience VIP" - Image premium
-  vipExperience: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  // Section "Expérience VIP" - Barbier au travail
+  vipExperience: KLEAN_IMAGES.prestation2,
   
-  // Section "Expérience VIP" - Image détail
-  vipDetail: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  // Section "Expérience VIP" - Rasage barbe premium
+  vipDetail: KLEAN_IMAGES.barbe1,
+  
+  // Page Contact - Façade du salon
+  contactFacade: KLEAN_IMAGES.facade,
+  
+  // Page Contact - Vue intérieure du salon
+  contactSalon: KLEAN_IMAGES.interieur,
+  
+  // Tondeuses professionnelles
+  tondeuses: KLEAN_IMAGES.tondeuses,
 };
 
-// ==================== IMAGES AMBIANCE (Grille 4 images) ====================
+// ==================== IMAGES AMBIANCE (Grille 4 images page accueil) ====================
 
 export const ambianceImages = [
   {
     id: "ambiance-1",
-    src: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Intérieur salon KLEAN - Fauteuils barbier",
-    size: "large" // Grande image (2x2)
+    src: KLEAN_IMAGES.interieur,
+    alt: "Intérieur salon KLEAN - Fauteuils premium",
+    size: "large" // Grande image 2x2
   },
   {
     id: "ambiance-2",
-    src: "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Ambiance salon - Décoration",
+    src: KLEAN_IMAGES.tondeuses,
+    alt: "Tondeuses professionnelles KLEAN",
     size: "normal"
   },
   {
     id: "ambiance-3",
-    src: "https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Détail équipement barbier",
+    src: KLEAN_IMAGES.barbe1,
+    alt: "Rasage traditionnel - Rasoir manche bois",
     size: "normal"
   },
   {
     id: "ambiance-4",
-    src: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Barbier au travail",
-    size: "wide" // Image large (2x1)
+    src: KLEAN_IMAGES.facade,
+    alt: "Façade KLEAN Barbershop Tigery",
+    size: "wide" // Image large 2x1
   }
 ];
 
 // ==================== GALERIE PORTFOLIO ====================
-// 
-// Catégories disponibles :
-// - coupes : Coupes et dégradés
-// - barbe : Soins et rasage barbe  
-// - tresses : Tresses et braids
-// - locks : Locks et dreadlocks
-// - interieur : Intérieur du salon
-// - ambiance : Ambiance et détails
-//
-// Tailles disponibles :
-// - normal : 1x1 (carré standard)
-// - large : 2x2 (grande image mise en avant)
-// - tall : 1x2 (image verticale)
-// - wide : 2x1 (image horizontale)
 
 export const galleryImages = [
   // ===== COUPES & DÉGRADÉS =====
   {
     id: 1,
-    src: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    src: KLEAN_IMAGES.contour,
     category: "coupes",
-    alt: "Dégradé précis - Coupe homme",
+    alt: "Contour précis - Hairline parfaite",
     size: "large",
     featured: true
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1503951914875-452162b7f300?q=80&w=2070&auto=format&fit=crop",
+    src: KLEAN_IMAGES.degrade1,
     category: "coupes",
-    alt: "Coupe moderne homme",
+    alt: "Dégradé classique - Style afro",
     size: "normal"
   },
   {
     id: 3,
-    src: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    src: KLEAN_IMAGES.degradeEspagnol,
     category: "coupes",
-    alt: "Dégradé américain",
+    alt: "Dégradé espagnol - Coupe texturée",
     size: "normal"
   },
   {
     id: 4,
-    src: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    src: KLEAN_IMAGES.taper1,
     category: "coupes",
-    alt: "Coupe classique soignée",
+    alt: "Taper fade - Coupe moderne KLEAN",
+    size: "tall"
+  },
+  {
+    id: 5,
+    src: KLEAN_IMAGES.taper2,
+    category: "coupes",
+    alt: "Taper fade - Style clean",
     size: "normal"
   },
 
   // ===== BARBE =====
   {
-    id: 5,
-    src: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: 6,
+    src: KLEAN_IMAGES.barbe1,
     category: "barbe",
-    alt: "Soin de barbe premium",
+    alt: "Rasage traditionnel - Rasoir manche bois",
     size: "large",
     featured: true
-  },
-  {
-    id: 6,
-    src: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    category: "barbe",
-    alt: "Rasage traditionnel",
-    size: "normal"
-  },
-  {
-    id: 7,
-    src: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    category: "barbe",
-    alt: "Taille de barbe",
-    size: "normal"
   },
 
   // ===== TRESSES / BRAIDS =====
   {
+    id: 7,
+    src: KLEAN_IMAGES.nattes1,
+    category: "tresses",
+    alt: "Tresses plaquées - Style cornrows",
+    size: "large",
+    featured: true
+  },
+  {
     id: 8,
-    src: "https://images.unsplash.com/photo-1521146764736-56c929d59c83?q=80&w=1887&auto=format&fit=crop",
+    src: KLEAN_IMAGES.prestation2,
     category: "tresses",
-    alt: "Tresses africaines",
-    size: "tall",
-    featured: true
-  },
-  {
-    id: 9,
-    src: "https://images.unsplash.com/photo-1521146764736-56c929d59c83?q=80&w=1887&auto=format&fit=crop",
-    category: "tresses",
-    alt: "Braids homme",
-    size: "normal"
-  },
-  {
-    id: 10,
-    src: "https://images.unsplash.com/photo-1521146764736-56c929d59c83?q=80&w=1887&auto=format&fit=crop",
-    category: "tresses",
-    alt: "Cornrows",
-    size: "normal"
-  },
-
-  // ===== LOCKS =====
-  {
-    id: 11,
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop",
-    category: "locks",
-    alt: "Locks entretenues",
-    size: "tall",
-    featured: true
-  },
-  {
-    id: 12,
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop",
-    category: "locks",
-    alt: "Starter locks",
-    size: "normal"
-  },
-  {
-    id: 13,
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop",
-    category: "locks",
-    alt: "Retwist locks",
+    alt: "Réalisation de tresses - Expertise afro",
     size: "normal"
   },
 
   // ===== INTÉRIEUR DU SALON =====
   {
-    id: 14,
-    src: "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: 9,
+    src: KLEAN_IMAGES.interieur,
     category: "interieur",
-    alt: "Vue intérieure salon KLEAN",
+    alt: "Salon KLEAN - Vue intérieure premium",
     size: "large",
     featured: true
   },
   {
-    id: 15,
-    src: "https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: 10,
+    src: KLEAN_IMAGES.facade,
     category: "interieur",
-    alt: "Fauteuil barbier premium",
-    size: "normal"
+    alt: "Façade KLEAN Barbershop Tigery",
+    size: "wide"
   },
   {
-    id: 16,
-    src: "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: 11,
+    src: KLEAN_IMAGES.coiffeur,
     category: "interieur",
-    alt: "Espace d'accueil",
+    alt: "L'équipe KLEAN - Professionnalisme",
     size: "normal"
   },
 
   // ===== AMBIANCE =====
   {
-    id: 17,
-    src: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: 12,
+    src: KLEAN_IMAGES.tondeuses,
     category: "ambiance",
-    alt: "Ambiance premium KLEAN",
-    size: "wide",
+    alt: "Tondeuses professionnelles - Outils premium",
+    size: "large",
     featured: true
   },
   {
-    id: 18,
-    src: "https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: 13,
+    src: KLEAN_IMAGES.interieur,
     category: "ambiance",
-    alt: "Détails déco salon",
+    alt: "Ambiance premium - Fauteuils et éclairage",
     size: "normal"
   },
   {
-    id: 19,
-    src: "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: 14,
+    src: KLEAN_IMAGES.barbe1,
     category: "ambiance",
-    alt: "Éclairage ambiance",
-    size: "normal"
-  },
-  {
-    id: 20,
-    src: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    category: "ambiance",
-    alt: "Style KLEAN",
+    alt: "L'art du rasage - Détail",
     size: "normal"
   }
 ];
@@ -251,23 +238,23 @@ export const galleryCategories = [
   { id: "coupes", label: "Coupes & Dégradés", count: galleryImages.filter(i => i.category === "coupes").length },
   { id: "barbe", label: "Barbe", count: galleryImages.filter(i => i.category === "barbe").length },
   { id: "tresses", label: "Tresses & Braids", count: galleryImages.filter(i => i.category === "tresses").length },
-  { id: "locks", label: "Locks", count: galleryImages.filter(i => i.category === "locks").length },
   { id: "interieur", label: "Intérieur du salon", count: galleryImages.filter(i => i.category === "interieur").length },
   { id: "ambiance", label: "Ambiance", count: galleryImages.filter(i => i.category === "ambiance").length }
 ];
 
-// ==================== FONCTION UTILITAIRE ====================
+// ==================== FONCTIONS UTILITAIRES ====================
 
-// Récupérer les images par catégorie
 export const getImagesByCategory = (category) => {
   if (category === "all") return galleryImages;
   return galleryImages.filter(img => img.category === category);
 };
 
-// Récupérer les images mises en avant
 export const getFeaturedImages = () => {
   return galleryImages.filter(img => img.featured);
 };
+
+// Export des URLs brutes pour utilisation directe
+export { KLEAN_IMAGES };
 
 export default {
   heroImages,
@@ -276,5 +263,6 @@ export default {
   galleryImages,
   galleryCategories,
   getImagesByCategory,
-  getFeaturedImages
+  getFeaturedImages,
+  KLEAN_IMAGES
 };

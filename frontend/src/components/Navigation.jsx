@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Scissors } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { KLEAN_IMAGES } from "../config/images";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -60,9 +61,11 @@ const Navigation = () => {
               data-testid="logo-link"
               className="flex items-center gap-4 group"
             >
-              <div className={`w-12 h-12 bg-gold-500 flex items-center justify-center transition-all duration-500 ${isScrolled ? 'w-10 h-10' : ''}`}>
-                <Scissors className={`text-black transition-all duration-500 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
-              </div>
+              <img 
+                src={KLEAN_IMAGES.logo}
+                alt="KLEAN Barbershop Logo"
+                className={`rounded-full object-cover transition-all duration-500 ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`}
+              />
               <div className="hidden sm:block">
                 <span className="font-syne font-bold text-xl tracking-wider text-white group-hover:text-gold-400 transition-colors duration-300">
                   KLEAN

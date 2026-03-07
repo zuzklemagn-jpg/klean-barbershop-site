@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Scissors, MapPin, Phone, Instagram, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Instagram, Clock, ArrowRight } from "lucide-react";
+import { KLEAN_IMAGES } from "../config/images";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
@@ -14,9 +15,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 bg-gold-500 flex items-center justify-center">
-                <Scissors className="w-7 h-7 text-black" />
-              </div>
+              <img 
+                src={KLEAN_IMAGES.logo}
+                alt="KLEAN Barbershop Logo"
+                className="w-14 h-14 rounded-full object-cover"
+              />
               <div>
                 <span className="font-syne font-bold text-2xl tracking-wider text-white">
                   KLEAN

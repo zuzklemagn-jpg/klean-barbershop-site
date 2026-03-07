@@ -1,0 +1,9 @@
+# Query: +200
+# ContextLines: 1
+
+1 result - 1 file
+
+frontend/src/config/seo.js:
+  36        title: "Avis Clients | KLEAN Barbershop Tigery - Note 5/5 ⭐",
+  37:       description: "Découvrez les avis de nos clients satisfaits. KLEAN Barbershop : le barbier le mieux noté de Tigery et l'Essonne. +40 clients conquis.",
+  38        keywords: "avis barbier Tigery, meilleur barbershop Essonne, témoignages coiffeur homme 91"

@@ -59,7 +59,7 @@ const Reviews = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: "5.0", label: "Note moyenne" },
-              { value: "200+", label: "Clients satisfaits" },
+              { value: "40+", label: "Clients satisfaits" },
               { value: "100%", label: "Recommandent" },
               { value: "3 ans", label: "D'expérience" }
             ].map((stat, index) => (

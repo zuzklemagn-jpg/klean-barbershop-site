@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Heart, Wind, Droplets, Hand, Crown } from "lucide-react";
 import SEOHead from "../components/SEOHead";
-import BookButton from "../components/BookButton";
+import BookButton, { BOOKING_URL } from "../components/BookButton";
 import { trackPageView } from "../utils/analytics";
-
-const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
+import { sectionImages, KLEAN_IMAGES } from "../config/images";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -34,8 +33,8 @@ const VipExperience = () => {
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt="Expérience VIP"
+            src={sectionImages.vipExperience}
+            alt="Expérience VIP KLEAN"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/95 to-obsidian/70" />
@@ -184,8 +183,8 @@ const VipExperience = () => {
             >
               <div className="aspect-[3/4] overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  alt="Expérience VIP KLEAN"
+                  src={sectionImages.vipDetail}
+                  alt="Expérience VIP KLEAN - Rasage premium"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -218,10 +217,10 @@ const VipExperience = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             {[
-              "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              { src: KLEAN_IMAGES.interieur, alt: "Salon KLEAN - Intérieur" },
+              { src: KLEAN_IMAGES.barbe1, alt: "Rasage traditionnel" },
+              { src: KLEAN_IMAGES.coiffeur, alt: "Barbier KLEAN" },
+              { src: KLEAN_IMAGES.prestation2, alt: "Prestation tresses" }
             ].map((img, index) => (
               <motion.div
                 key={index}
@@ -231,7 +230,7 @@ const VipExperience = () => {
                 transition={{ delay: index * 0.1 }}
                 className="gallery-item aspect-square overflow-hidden"
               >
-                <img src={img} alt={`Salon KLEAN ${index + 1}`} className="w-full h-full object-cover" />
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
               </motion.div>
             ))}
           </div>

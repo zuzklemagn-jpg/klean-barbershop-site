@@ -81,7 +81,7 @@ const Home = () => {
               variants={fadeInUp}
               className="font-elegant text-2xl sm:text-3xl md:text-4xl text-gold-400 italic mb-8"
             >
-              L'art du grooming moderne
+              Wear your crown & Stay Klean
             </motion.p>
             
             {/* Description */}
@@ -89,7 +89,7 @@ const Home = () => {
               variants={fadeInUp}
               className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed"
             >
-              Coupes précises, barbe soignée, tresses et locks dans un salon premium à Tigery.
+              Salon de coiffure Barbier, Afro & VIP HomeService. Avec & sans rendez-vous
             </motion.p>
             
             {/* CTA Button */}
@@ -131,7 +131,7 @@ const Home = () => {
               <div className="gold-divider mb-8" />
               
               <p className="text-neutral-400 leading-loose mb-6 text-base md:text-lg">
-                KLEAN Barbershop est un salon de barbier premium situé à Tigery, dans l'Essonne. 
+                KLEAN Barbershop est un salon premium situé à Tigery, dans l'Essonne. 
                 Nous proposons des coupes modernes, des dégradés précis, des soins de barbe 
                 ainsi que des coiffures afro comme les tresses, twists et locks.
               </p>
@@ -354,7 +354,7 @@ const Home = () => {
             </h2>
             <div className="gold-divider mx-auto mb-10" />
             <p className="text-neutral-400 text-lg leading-loose">
-              Murs noirs élégants, détails dorés raffinés, éclairage chaleureux et fauteuils 
+              Murs sobres élégants, détails dorés raffinés, éclairage chaleureux et fauteuils 
               de barbier haut de gamme créent une atmosphère moderne et luxueuse.
             </p>
           </motion.div>

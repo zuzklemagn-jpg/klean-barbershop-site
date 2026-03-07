@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Scissors, Sparkles, Crown } from "lucide-react";
 import SEOHead from "../components/SEOHead";
-import BookButton from "../components/BookButton";
+import BookButton, { BOOKING_URL } from "../components/BookButton";
 import { trackPageView } from "../utils/analytics";
-
-const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
+import { sectionImages, KLEAN_IMAGES } from "../config/images";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -223,7 +222,7 @@ const Services = () => {
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  src={sectionImages.vipExperience}
                   alt="Expérience KLEAN Exclusive"
                   className="w-full h-full object-cover"
                 />

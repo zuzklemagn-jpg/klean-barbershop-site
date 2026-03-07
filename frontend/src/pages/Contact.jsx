@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Clock, Instagram, ExternalLink } from "lucide-react";
 import SEOHead from "../components/SEOHead";
-import BookButton from "../components/BookButton";
+import BookButton, { BOOKING_URL } from "../components/BookButton";
 import { trackPageView } from "../utils/analytics";
-
-const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
+import { sectionImages, KLEAN_IMAGES } from "../config/images";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -267,7 +266,7 @@ const Contact = () => {
       <section className="section-spacing bg-charcoal relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <img 
-            src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            src={KLEAN_IMAGES.interieur}
             alt=""
             className="w-full h-full object-cover"
           />
@@ -284,16 +283,9 @@ const Contact = () => {
             <p className="font-elegant text-2xl md:text-3xl text-gold-400 italic mb-10">
               transformation ?
             </p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="contact-cta-book-btn"
-              className="btn-book inline-flex items-center gap-3"
-            >
-              <span>Réserver mon rendez-vous</span>
-              <ArrowRight size={18} />
-            </a>
+            <BookButton source="contact-cta">
+              Réserver mon rendez-vous
+            </BookButton>
           </motion.div>
         </div>
       </section>
