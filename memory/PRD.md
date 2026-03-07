@@ -1,7 +1,10 @@
 # KLEAN Barbershop - Site Web Premium
 
 ## Énoncé du problème original
-Création d'un site web premium multi-pages pour **KLEAN Barbershop • Braids • Locks**, salon de barbier haut de gamme situé à Tigery (91250), France. Site entièrement en français, orienté conversion vers prise de rendez-vous.
+Création d'un site web TRÈS PREMIUM multi-pages pour **KLEAN Barbershop • Braids • Locks**, salon de barbier haut de gamme situé à Tigery (91250), France. Site entièrement en français, orienté conversion vers prise de rendez-vous.
+
+## Mise à jour (07/03/2026)
+Amélioration majeure du design pour un rendu encore plus luxueux inspiré des codes du luxe moderne : fond noir profond, détails dorés élégants, animations subtiles, grandes images immersives.
 
 ## Architecture
 - **Frontend**: React 19 + React Router DOM v7
