@@ -1,54 +1,51 @@
 import { motion } from "framer-motion";
 import { Star, MapPin, ExternalLink } from "lucide-react";
 
-// Google Reviews Widget - Displays reviews with Google-style rating
-// These are real-style reviews to boost social proof
+// Google Reviews Widget - Vrais avis clients de Google Business
+// Dernière mise à jour : Mars 2026
+
+const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=KLEAN+Barbershop+Braids+Locks+Tigery+Avis&rflfq=1&tbm=lcl#lkt=LocalPoiReviews";
 
 const googleReviews = [
   {
     id: 1,
-    author: "Maxime Dubois",
-    avatar: "M",
+    author: "Aurélien L.",
+    avatar: "A",
     rating: 5,
-    date: "il y a 2 semaines",
-    text: "Dégradé parfait et coupe très propre. Super accueil et salon magnifique. Je recommande à 100% !",
-    source: "Google"
+    isLocalGuide: false,
+    text: "Super salon ! Toujours très bien accueilli, ambiance agréable et résultat au top à chaque fois. Je ressors toujours satisfait. Je recommande sans hésiter !"
   },
   {
     id: 2,
-    author: "Karim Benali",
-    avatar: "K",
+    author: "Michaël T.",
+    avatar: "M",
     rating: 5,
-    date: "il y a 1 mois",
-    text: "Très professionnel. Un des meilleurs barbers du secteur. Le salon est vraiment classe et l'ambiance top.",
-    source: "Google"
+    isLocalGuide: true,
+    text: "Un accueil sympathique. Très satisfait de la prestation. Il prend le temps avec ses clients, ses gestes sont précis. De très bons produits utilisés. J'y reviendrais sans hésiter."
   },
   {
     id: 3,
-    author: "Thomas Laurent",
-    avatar: "T",
+    author: "Beatrice S.",
+    avatar: "B",
     rating: 5,
-    date: "il y a 1 mois",
-    text: "Excellent travail sur la barbe et la coupe. Le rasage traditionnel est une vraie expérience de détente.",
-    source: "Google"
+    isLocalGuide: true,
+    text: "Très professionnel et il prend son temps avec le client. C'est très agréable ce genre de prestation dans le coin. Faut continuer on reviendra !"
   },
   {
     id: 4,
-    author: "Aminata Sow",
-    avatar: "A",
+    author: "Swody H.",
+    avatar: "S",
     rating: 5,
-    date: "il y a 3 semaines",
-    text: "Mes tresses sont parfaites ! Exactement ce que je voulais. Merci pour la patience et le professionnalisme.",
-    source: "Google"
+    isLocalGuide: false,
+    text: "J'ai pas pour habitude de mettre des avis mais obligé de donner de la force à cet établissement, deuxième fois que je vais là-bas et je ressors une fois de plus avec une coupe parfaite, vous pouvez y aller les yeux fermés, le barber est à l'écoute, soigneux et vraiment professionnel. +1 aussi pour l'ambiance, il échange avec vous durant toute la presta, ce qui est assez rare et tout ça pour des prix vraiment abordables."
   },
   {
     id: 5,
-    author: "Julien Martin",
-    avatar: "J",
+    author: "Mahfoud B.",
+    avatar: "M",
     rating: 5,
-    date: "il y a 2 mois",
-    text: "Première visite et je suis conquis. Ambiance premium, travail soigné. Je reviendrai c'est certain !",
-    source: "Google"
+    isLocalGuide: false,
+    text: "Enfin depuis le temps que je rêvais qu'un bon barber shop s'installe sur la place. Très bon accueil dégradé réalisé à la perfection. Le salon est propre on s'y sent bien tout de suite facilité pour la prise de rendez-vous et facilité pour se garer bref 5 étoiles je recommande."
   }
 ];
 
@@ -70,8 +67,11 @@ const GoogleReviewCard = ({ review, index }) => (
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-white font-medium">{review.author}</span>
-          <span className="text-neutral-600 text-xs">•</span>
-          <span className="text-neutral-600 text-xs">{review.date}</span>
+          {review.isLocalGuide && (
+            <span className="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full">
+              Local Guide
+            </span>
+          )}
         </div>
         
         {/* Stars */}
@@ -130,35 +130,50 @@ const GoogleReviewsWidget = () => {
                     <Star key={i} size={16} className="fill-gold-500 text-gold-500" />
                   ))}
                 </div>
-                <span className="text-neutral-500 text-xs">{totalReviews}+ avis</span>
+                <span className="text-neutral-500 text-xs">{totalReviews}+ avis Google</span>
               </div>
             </div>
-            
-            <a
-              href="https://g.page/r/klean-barbershop/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gold-400 hover:text-gold-300 transition-colors"
-            >
-              <span>Voir sur Google</span>
-              <ExternalLink size={14} />
-            </a>
           </div>
         </motion.div>
 
-        {/* Reviews grid */}
+        {/* Reviews grid - Real Google reviews */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {googleReviews.slice(0, 6).map((review, index) => (
+          {googleReviews.map((review, index) => (
             <GoogleReviewCard key={review.id} review={review} index={index} />
           ))}
         </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="google-reviews-cta"
+            className="btn-secondary inline-flex items-center gap-3"
+          >
+            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span>Voir tous les avis sur Google</span>
+            <ExternalLink size={16} />
+          </a>
+        </motion.div>
 
         {/* Location badge */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className="mt-8 text-center"
         >
           <div className="inline-flex items-center gap-3 bg-white/[0.02] border border-white/5 px-6 py-3">
             <MapPin size={16} className="text-gold-500" />
