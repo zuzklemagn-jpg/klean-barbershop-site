@@ -9,12 +9,12 @@ module.exports = {
           300: "#F0D77E",
           400: "#E5C158",
           500: "#D4AF37",
-          600: "#C5A028",
+          600: "#C9A227",
           700: "#A6871F"
         },
-        obsidian: "#050505",
-        charcoal: "#0F0F0F",
-        surface: "#1A1A1A",
+        obsidian: "#030303",
+        charcoal: "#0A0A0A",
+        surface: "#111111",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -52,7 +52,8 @@ module.exports = {
       fontFamily: {
         syne: ["Syne", "sans-serif"],
         manrope: ["Manrope", "sans-serif"],
-        italiana: ["Italiana", "serif"]
+        italiana: ["Italiana", "serif"],
+        elegant: ["Cormorant Garamond", "serif"]
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -67,21 +68,16 @@ module.exports = {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" }
-        },
-        "pulse-slow": {
-          "0%, 100%": { opacity: 1, transform: "scale(1)" },
-          "50%": { opacity: 0.9, transform: "scale(1.05)" }
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" }
         }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-slow": "pulse-slow 2s ease-in-out infinite",
-        shimmer: "shimmer 3s ease-in-out infinite"
+        "accordion-up": "accordion-up 0.2s ease-out"
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '30': '7.5rem',
       }
     }
   },

@@ -23,7 +23,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,46 +33,55 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       <nav
         data-testid="main-navigation"
-        className={`fixed top-0 w-full z-40 transition-all duration-500 ${
+        className={`fixed top-0 w-full z-40 transition-all duration-700 ${
           isScrolled
-            ? "bg-obsidian/95 backdrop-blur-lg border-b border-white/5"
-            : "bg-transparent"
+            ? "bg-obsidian/95 backdrop-blur-xl border-b border-white/5 py-4"
+            : "bg-transparent py-6"
         }`}
       >
         <div className="section-container">
-          <div className="flex items-center justify-between h-20 md:h-24">
+          <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
               to="/"
               data-testid="logo-link"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-4 group"
             >
-              <div className="w-10 h-10 bg-gold-500 flex items-center justify-center">
-                <Scissors className="w-5 h-5 text-black" />
+              <div className={`w-12 h-12 bg-gold-500 flex items-center justify-center transition-all duration-500 ${isScrolled ? 'w-10 h-10' : ''}`}>
+                <Scissors className={`text-black transition-all duration-500 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
               </div>
               <div className="hidden sm:block">
-                <span className="font-syne font-bold text-lg tracking-wider text-white group-hover:text-gold-400 transition-colors">
+                <span className="font-syne font-bold text-xl tracking-wider text-white group-hover:text-gold-400 transition-colors duration-300">
                   KLEAN
                 </span>
-                <span className="block text-[10px] tracking-[0.3em] text-neutral-500 uppercase">
+                <span className="block text-[9px] tracking-[0.35em] text-neutral-600 uppercase">
                   Barbershop
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   data-testid={`nav-link-${link.path.replace("/", "") || "home"}`}
                   className={`nav-link ${
-                    location.pathname === link.path ? "text-gold-400" : ""
+                    location.pathname === link.path ? "text-gold-400 after:w-full" : ""
                   }`}
                 >
                   {link.name}
@@ -81,13 +90,13 @@ const Navigation = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="nav-book-btn"
-                className="hidden md:block btn-primary text-xs py-3 px-6"
+                className="hidden md:block bg-gold-500 text-black font-semibold text-[11px] uppercase tracking-[0.2em] px-6 py-3 hover:bg-white transition-all duration-500"
               >
                 Réserver
               </a>
@@ -99,7 +108,7 @@ const Navigation = () => {
                 className="lg:hidden p-2 text-white hover:text-gold-400 transition-colors"
                 aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
           </div>
@@ -110,53 +119,59 @@ const Navigation = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             data-testid="mobile-menu"
-            className="fixed inset-0 z-30 bg-obsidian pt-24 lg:hidden"
+            className="fixed inset-0 z-30 bg-obsidian lg:hidden"
           >
-            <div className="section-container py-8">
-              <div className="flex flex-col gap-6">
+            <div className="h-full flex flex-col justify-center section-container">
+              <nav className="space-y-2">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.path}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.08, duration: 0.4 }}
                   >
                     <Link
                       to={link.path}
                       data-testid={`mobile-nav-link-${link.path.replace("/", "") || "home"}`}
-                      className={`block text-2xl font-syne font-semibold tracking-wider ${
+                      className={`block py-3 text-3xl font-syne font-semibold tracking-wide transition-colors duration-300 ${
                         location.pathname === link.path
                           ? "text-gold-400"
-                          : "text-white hover:text-gold-400"
-                      } transition-colors`}
+                          : "text-white/60 hover:text-white"
+                      }`}
                     >
                       {link.name}
                     </Link>
                   </motion.div>
                 ))}
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="mt-8"
+              </nav>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="mt-12 pt-12 border-t border-white/10"
+              >
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="mobile-book-btn"
+                  className="btn-book block text-center"
                 >
-                  <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid="mobile-book-btn"
-                    className="btn-primary inline-block text-center w-full"
-                  >
-                    Réserver un rendez-vous
+                  Réserver un rendez-vous
+                </a>
+                
+                <div className="mt-8 text-center">
+                  <a href="tel:+33699393917" className="text-neutral-500 hover:text-gold-400 transition-colors text-sm">
+                    +33 6 99 39 39 17
                   </a>
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

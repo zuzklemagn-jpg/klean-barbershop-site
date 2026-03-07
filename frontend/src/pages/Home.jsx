@@ -3,220 +3,256 @@ import { motion } from "framer-motion";
 import { 
   Scissors, 
   Award, 
-  Users, 
   Sparkles, 
   ChevronRight,
   Star,
-  ArrowRight
+  ArrowRight,
+  Clock
 } from "lucide-react";
 
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
 };
 
 const Home = () => {
   return (
-    <div data-testid="home-page">
-      {/* Hero Section */}
+    <div data-testid="home-page" className="bg-obsidian">
+      {/* ==================== HERO SECTION ==================== */}
       <section 
         data-testid="hero-section"
-        className="relative min-h-screen flex items-center justify-center"
+        className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
       >
         {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1503951914875-452162b7f300?q=80&w=2070&auto=format&fit=crop')`
-          }}
-        />
-        <div className="absolute inset-0 hero-overlay" />
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1503951914875-452162b7f300?q=80&w=2070&auto=format&fit=crop"
+            alt="KLEAN Barbershop"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 hero-overlay" />
+          <div className="absolute inset-0 hero-vignette" />
+        </div>
         
         {/* Content */}
-        <div className="relative z-10 section-container text-center">
+        <div className="relative z-10 section-container text-center px-6">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial="initial"
+            animate="animate"
+            variants={staggerContainer}
+            className="max-w-4xl mx-auto"
           >
-            <span className="inline-block text-gold-400 text-xs tracking-[0.4em] uppercase mb-6">
-              Barbershop Premium à Tigery
-            </span>
+            {/* Premium Label */}
+            <motion.div 
+              variants={fadeInUp}
+              className="mb-8"
+            >
+              <span className="premium-label">Barbershop Premium • Tigery</span>
+            </motion.div>
             
-            <h1 className="font-syne font-bold text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white uppercase tracking-tighter mb-6">
-              <span className="block">L'art du</span>
-              <span className="gold-gradient-text">style masculin</span>
-            </h1>
+            {/* Main Title */}
+            <motion.h1 
+              variants={fadeInUp}
+              className="font-syne font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white uppercase tracking-tight mb-4"
+            >
+              KLEAN
+            </motion.h1>
             
-            <p className="text-neutral-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-              Coupes précises, barbe soignée, tresses et locks dans un salon élégant et moderne.
-            </p>
+            {/* Elegant Subtitle */}
+            <motion.p 
+              variants={fadeInUp}
+              className="font-elegant text-2xl sm:text-3xl md:text-4xl text-gold-400 italic mb-8"
+            >
+              L'art du grooming moderne
+            </motion.p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* Description */}
+            <motion.p 
+              variants={fadeInUp}
+              className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed"
+            >
+              Coupes précises, barbe soignée, tresses et locks dans un salon premium à Tigery.
+            </motion.p>
+            
+            {/* CTA Button */}
+            <motion.div variants={fadeInUp}>
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="hero-book-btn"
-                className="btn-primary inline-flex items-center justify-center gap-2 text-sm"
+                className="btn-book inline-flex items-center gap-3"
               >
-                Réserver un rendez-vous
+                <span>Réserver un rendez-vous</span>
                 <ArrowRight size={18} />
               </a>
-              <Link
-                to="/prestations"
-                data-testid="hero-services-btn"
-                className="btn-secondary inline-flex items-center justify-center gap-2 text-sm"
-              >
-                Voir les prestations
-              </Link>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border border-white/20 rounded-full flex justify-center pt-2"
-          >
-            <div className="w-1.5 h-3 bg-gold-500 rounded-full" />
-          </motion.div>
+        {/* Scroll Indicator */}
+        <div className="scroll-indicator hidden md:block">
+          <div className="scroll-indicator-line" />
         </div>
+
+        {/* Decorative corners */}
+        <div className="absolute bottom-20 left-10 w-20 h-20 border-l border-b border-gold-500/20 hidden lg:block" />
+        <div className="absolute top-32 right-10 w-20 h-20 border-r border-t border-gold-500/20 hidden lg:block" />
       </section>
 
-      {/* Introduction Section */}
-      <section data-testid="intro-section" className="section-spacing bg-obsidian">
+      {/* ==================== INTRO SECTION ==================== */}
+      <section data-testid="intro-section" className="section-spacing bg-obsidian relative">
         <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
             <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeInUp}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
             >
-              <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-4 block">
-                Bienvenue chez KLEAN
-              </span>
-              <h2 className="font-syne font-bold text-3xl md:text-4xl lg:text-5xl text-white uppercase tracking-tight mb-6">
-                L'expérience barbier<br />
-                <span className="gold-gradient-text">premium</span>
+              <span className="premium-label mb-6 block">Bienvenue</span>
+              
+              <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mb-8 leading-[1.1]">
+                L'expérience barbier
+                <span className="block gold-gradient-text mt-2">Premium</span>
               </h2>
-              <p className="text-neutral-400 leading-relaxed mb-6">
+              
+              <div className="gold-divider mb-8" />
+              
+              <p className="text-neutral-400 leading-loose mb-6 text-base md:text-lg">
                 KLEAN Barbershop est un salon de barbier premium situé à Tigery, dans l'Essonne. 
                 Nous proposons des coupes modernes, des dégradés précis, des soins de barbe 
                 ainsi que des coiffures afro comme les tresses, twists et locks.
               </p>
-              <p className="text-neutral-400 leading-relaxed mb-8">
+              
+              <p className="text-neutral-500 leading-loose mb-10">
                 Notre objectif est d'offrir à chaque client une expérience de grooming complète 
                 dans un cadre élégant et confortable.
               </p>
+              
               <Link
                 to="/a-propos"
                 data-testid="intro-about-link"
-                className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors uppercase text-sm tracking-wider"
+                className="group inline-flex items-center gap-3 text-gold-400 hover:text-gold-300 transition-colors"
               >
-                En savoir plus
-                <ChevronRight size={18} />
+                <span className="text-sm uppercase tracking-[0.2em]">Découvrir notre histoire</span>
+                <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-[4/5] bg-charcoal overflow-hidden">
+              <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                   alt="Barbier professionnel au travail"
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Decorative element */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-gold-500/30" />
+              {/* Decorative frame */}
+              <div className="absolute -bottom-6 -right-6 w-full h-full border border-gold-500/20 -z-10" />
+              <div className="absolute -top-6 -left-6 w-24 h-24 border-l border-t border-gold-500/30" />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Services Preview Section */}
-      <section data-testid="services-preview-section" className="section-spacing bg-charcoal">
-        <div className="section-container">
+      {/* ==================== SERVICES SECTION ==================== */}
+      <section data-testid="services-preview-section" className="section-spacing bg-charcoal relative">
+        {/* Background texture */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+        
+        <div className="section-container relative">
           <motion.div
-            initial="initial"
-            whileInView="animate"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-16"
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
           >
-            <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-4 block">
-              Nos expertises
-            </span>
-            <h2 className="font-syne font-bold text-3xl md:text-4xl lg:text-5xl text-white uppercase tracking-tight">
+            <span className="premium-label mb-6 block">Nos expertises</span>
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mb-6">
               Prestations
             </h2>
+            <div className="gold-divider mx-auto" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "Coupes & Dégradés",
-                desc: "Coupes classiques, dégradés précis et styles modernes",
+                desc: "Coupes classiques, dégradés précis et styles modernes réalisés avec expertise",
                 icon: Scissors,
-                price: "À partir de 20€"
+                price: "À partir de 20€",
+                duration: "40-50 min"
               },
               {
                 title: "Barbe & Rasage",
-                desc: "Rasage traditionnel, taille et soins de la barbe",
+                desc: "Rasage traditionnel, taille et soins de la barbe avec serviettes chaudes",
                 icon: Award,
-                price: "À partir de 12€"
+                price: "À partir de 12€",
+                duration: "20-60 min"
               },
               {
                 title: "Tresses & Locks",
-                desc: "Braids, twists, locks et coiffures afro",
+                desc: "Braids, twists, locks et coiffures afro par des experts",
                 icon: Sparkles,
-                price: "Sur devis"
-              },
-              {
-                title: "Rasage Tête",
-                desc: "Tondeuse ou rasoir pour un crâne net",
-                icon: Users,
-                price: "À partir de 12€"
-              },
-              {
-                title: "Soins Premium",
-                desc: "Serviettes chaudes, huiles et massages",
-                icon: Star,
-                price: "Inclus"
-              },
-              {
-                title: "Expérience Prestige",
-                desc: "Service complet VIP de 3 heures",
-                icon: Award,
-                price: "250€"
+                price: "Sur devis",
+                duration: "Variable"
               }
             ].map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
                 className="service-card group"
               >
-                <service.icon className="w-8 h-8 text-gold-500 mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-syne font-semibold text-xl text-white uppercase tracking-wide mb-2">
+                <div className="flex items-start justify-between mb-6">
+                  <service.icon className="w-10 h-10 text-gold-500 group-hover:scale-110 transition-transform duration-500" />
+                  <span className="text-gold-400 font-syne font-bold text-xl">{service.price}</span>
+                </div>
+                
+                <h3 className="font-syne font-semibold text-xl text-white uppercase tracking-wide mb-3">
                   {service.title}
                 </h3>
-                <p className="text-neutral-400 text-sm mb-4">{service.desc}</p>
-                <span className="text-gold-400 text-sm font-medium">{service.price}</span>
+                
+                <p className="text-neutral-500 text-sm mb-6 leading-relaxed">{service.desc}</p>
+                
+                <div className="flex items-center justify-between pt-6 border-t border-white/5">
+                  <div className="flex items-center gap-2 text-neutral-600 text-sm">
+                    <Clock size={14} />
+                    <span>{service.duration}</span>
+                  </div>
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-300 transition-colors"
+                  >
+                    Réserver →
+                  </a>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -225,56 +261,57 @@ const Home = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mt-12"
+            className="text-center mt-16"
           >
             <Link
               to="/prestations"
               data-testid="services-view-all-btn"
-              className="btn-secondary inline-flex items-center gap-2"
+              className="btn-secondary inline-flex items-center gap-3"
             >
-              Voir tous les tarifs
+              <span>Voir tous les tarifs</span>
               <ChevronRight size={18} />
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* ==================== WHY US SECTION ==================== */}
       <section data-testid="why-us-section" className="section-spacing bg-obsidian">
         <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               className="relative order-2 lg:order-1"
             >
-              <div className="aspect-square bg-charcoal overflow-hidden">
+              <div className="aspect-square overflow-hidden">
                 <img
                   src="https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                   alt="Intérieur du salon KLEAN"
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Decorative element */}
-              <div className="absolute -top-6 -left-6 w-32 h-32 border border-gold-500/30" />
+              {/* Decorative frame */}
+              <div className="absolute -top-6 -left-6 w-full h-full border border-gold-500/20 -z-10" />
             </motion.div>
 
             <motion.div
-              initial="initial"
-              whileInView="animate"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              variants={fadeInUp}
+              transition={{ duration: 0.8 }}
               className="order-1 lg:order-2"
             >
-              <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-4 block">
-                Notre différence
-              </span>
-              <h2 className="font-syne font-bold text-3xl md:text-4xl lg:text-5xl text-white uppercase tracking-tight mb-8">
-                Pourquoi choisir<br />
-                <span className="gold-gradient-text">KLEAN ?</span>
+              <span className="premium-label mb-6 block">Notre différence</span>
+              
+              <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mb-8 leading-[1.1]">
+                Pourquoi choisir
+                <span className="block gold-gradient-text mt-2">KLEAN ?</span>
               </h2>
+              
+              <div className="gold-divider mb-10" />
 
               <div className="space-y-6">
                 {[
@@ -287,14 +324,14 @@ const Home = () => {
                 ].map((item, index) => (
                   <motion.div
                     key={item}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-4"
+                    className="flex items-center gap-5 group"
                   >
-                    <div className="w-2 h-2 bg-gold-500" />
-                    <span className="text-neutral-300">{item}</span>
+                    <div className="w-3 h-3 bg-gold-500 group-hover:scale-125 transition-transform" />
+                    <span className="text-neutral-300 group-hover:text-white transition-colors">{item}</span>
                   </motion.div>
                 ))}
               </div>
@@ -303,39 +340,34 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Ambiance Section */}
+      {/* ==================== AMBIANCE SECTION ==================== */}
       <section data-testid="ambiance-section" className="section-spacing bg-charcoal">
         <div className="section-container">
           <motion.div
-            initial="initial"
-            whileInView="animate"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={fadeInUp}
-            className="max-w-3xl mx-auto text-center"
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto text-center mb-20"
           >
-            <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-4 block">
-              Une expérience unique
-            </span>
-            <h2 className="font-syne font-bold text-3xl md:text-4xl lg:text-5xl text-white uppercase tracking-tight mb-8">
+            <span className="premium-label mb-6 block">Une expérience unique</span>
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mb-6">
               L'ambiance KLEAN
             </h2>
-            <p className="text-neutral-400 text-lg leading-relaxed mb-6">
-              Le salon KLEAN a été conçu pour offrir une expérience unique.
-            </p>
-            <p className="text-neutral-400 leading-relaxed">
+            <div className="gold-divider mx-auto mb-10" />
+            <p className="text-neutral-400 text-lg leading-loose">
               Murs noirs élégants, détails dorés raffinés, éclairage chaleureux et fauteuils 
-              de barbier haut de gamme créent une atmosphère moderne et luxueuse. Chaque client 
-              profite d'un moment de détente dans un espace calme et stylé.
+              de barbier haut de gamme créent une atmosphère moderne et luxueuse.
             </p>
           </motion.div>
 
-          {/* Image grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+          {/* Premium image grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {[
-              "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              { src: "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", span: "col-span-2 row-span-2" },
+              { src: "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", span: "" },
+              { src: "https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", span: "" },
+              { src: "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", span: "col-span-2" }
             ].map((img, index) => (
               <motion.div
                 key={index}
@@ -343,12 +375,12 @@ const Home = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="aspect-square overflow-hidden"
+                className={`gallery-item aspect-square ${img.span} overflow-hidden cursor-pointer`}
               >
                 <img
-                  src={img}
+                  src={img.src}
                   alt={`Ambiance salon ${index + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                 />
               </motion.div>
             ))}
@@ -356,54 +388,68 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* ==================== TESTIMONIALS SECTION ==================== */}
       <section data-testid="testimonials-section" className="section-spacing bg-obsidian">
         <div className="section-container">
           <motion.div
-            initial="initial"
-            whileInView="animate"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-16"
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
           >
-            <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-4 block">
-              Témoignages
-            </span>
-            <h2 className="font-syne font-bold text-3xl md:text-4xl lg:text-5xl text-white uppercase tracking-tight">
+            <span className="premium-label mb-6 block">Témoignages</span>
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mb-6">
               Avis clients
             </h2>
+            <div className="gold-divider mx-auto" />
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                text: "Dégradé parfait et coupe très propre. Super accueil et salon magnifique.",
-                author: "Maxime D."
+                text: "Dégradé parfait et coupe très propre. Super accueil et salon magnifique. Je ne vais plus ailleurs !",
+                author: "Maxime D.",
+                service: "Coupe + Dégradé"
               },
               {
-                text: "Très professionnel. Un des meilleurs barbers du secteur.",
-                author: "Karim B."
+                text: "Très professionnel. Un des meilleurs barbers du secteur. Le salon est vraiment classe.",
+                author: "Karim B.",
+                service: "Coupe classique"
               },
               {
-                text: "Excellent travail sur la barbe et la coupe. Je recommande.",
-                author: "Thomas L."
+                text: "Excellent travail sur la barbe et la coupe. Le rasage traditionnel est une vraie expérience.",
+                author: "Thomas L.",
+                service: "Coupe + Barbe"
               }
             ].map((review, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card p-8"
+                transition={{ delay: index * 0.15 }}
+                className="glass-card p-10 relative"
               >
-                <div className="flex gap-1 mb-4">
+                {/* Quote mark */}
+                <div className="absolute top-6 right-6 text-gold-500/10 font-elegant text-8xl leading-none">
+                  "
+                </div>
+                
+                <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-gold-500 text-gold-500" />
+                    <Star key={i} size={14} className="fill-gold-500 text-gold-500" />
                   ))}
                 </div>
-                <p className="text-neutral-300 mb-6 leading-relaxed">"{review.text}"</p>
-                <span className="text-gold-400 text-sm font-medium">{review.author}</span>
+                
+                <p className="text-neutral-300 mb-8 leading-relaxed relative z-10">
+                  "{review.text}"
+                </p>
+                
+                <div className="pt-6 border-t border-white/5">
+                  <span className="text-white font-medium block">{review.author}</span>
+                  <span className="text-neutral-600 text-sm">{review.service}</span>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -412,54 +458,57 @@ const Home = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mt-12"
+            className="text-center mt-16"
           >
             <Link
               to="/avis"
               data-testid="testimonials-view-all-btn"
-              className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors uppercase text-sm tracking-wider"
+              className="group inline-flex items-center gap-3 text-gold-400 hover:text-gold-300 transition-colors"
             >
-              Voir tous les avis
-              <ChevronRight size={18} />
+              <span className="text-sm uppercase tracking-[0.2em]">Voir tous les avis</span>
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ==================== CTA SECTION ==================== */}
       <section data-testid="cta-section" className="section-spacing bg-charcoal relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: `url('https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')`
-            }}
+        {/* Background */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt=""
+            className="w-full h-full object-cover opacity-10"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/95 to-charcoal" />
         </div>
         
         <div className="section-container relative z-10">
           <motion.div
-            initial="initial"
-            whileInView="animate"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={fadeInUp}
+            transition={{ duration: 0.8 }}
             className="max-w-2xl mx-auto text-center"
           >
-            <h2 className="font-syne font-bold text-3xl md:text-4xl lg:text-5xl text-white uppercase tracking-tight mb-6">
-              Prêt pour une coupe<br />
-              <span className="gold-gradient-text">propre et stylée ?</span>
+            <span className="premium-label mb-6 block">Prêt ?</span>
+            
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mb-4">
+              Prêt pour une coupe
             </h2>
-            <p className="text-neutral-400 mb-10">
-              Réservez votre créneau et vivez l'expérience KLEAN.
+            <p className="font-elegant text-2xl md:text-3xl text-gold-400 italic mb-10">
+              propre et stylée ?
             </p>
+            
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-testid="cta-book-btn"
-              className="btn-primary inline-flex items-center gap-2"
+              className="btn-book inline-flex items-center gap-3"
             >
-              Réserver mon rendez-vous
+              <span>Réserver mon rendez-vous</span>
               <ArrowRight size={18} />
             </a>
           </motion.div>

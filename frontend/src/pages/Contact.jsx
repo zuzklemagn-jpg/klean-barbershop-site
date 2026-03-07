@@ -4,9 +4,9 @@ import { ArrowRight, MapPin, Phone, Clock, Instagram, ExternalLink } from "lucid
 const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
 };
 
 const hours = [
@@ -21,9 +21,9 @@ const hours = [
 
 const Contact = () => {
   return (
-    <div data-testid="contact-page" className="pt-24">
+    <div data-testid="contact-page" className="pt-24 bg-obsidian">
       {/* Hero */}
-      <section className="section-spacing bg-obsidian">
+      <section className="section-spacing">
         <div className="section-container">
           <motion.div
             initial="initial"
@@ -31,12 +31,17 @@ const Contact = () => {
             variants={fadeInUp}
             className="max-w-3xl"
           >
-            <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-4 block">
-              Nous trouver
-            </span>
-            <h1 className="font-syne font-bold text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tighter mb-6">
-              Contact & <span className="gold-gradient-text">Réservation</span>
+            <span className="premium-label mb-6 block">Nous trouver</span>
+            
+            <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase tracking-tighter mb-4">
+              Contact &
             </h1>
+            <p className="font-elegant text-3xl md:text-4xl text-gold-400 italic mb-8">
+              Réservation
+            </p>
+            
+            <div className="gold-divider mb-8" />
+            
             <p className="text-neutral-400 text-lg leading-relaxed">
               Venez nous rendre visite à Tigery ou réservez directement en ligne. 
               Notre équipe vous accueille dans un cadre premium.
@@ -48,19 +53,21 @@ const Contact = () => {
       {/* Contact Info + Map */}
       <section className="section-spacing bg-charcoal">
         <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Contact Info */}
             <motion.div
-              initial="initial"
-              whileInView="animate"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              variants={fadeInUp}
+              transition={{ duration: 0.8 }}
             >
-              <div className="space-y-10">
+              <div className="space-y-12">
                 {/* Address */}
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <MapPin className="w-6 h-6 text-gold-500" />
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gold-500/10 flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-gold-500" />
+                    </div>
                     <h3 className="font-syne font-semibold text-xl text-white uppercase tracking-wide">
                       Adresse
                     </h3>
@@ -70,7 +77,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid="contact-address-link"
-                    className="text-neutral-400 hover:text-gold-400 transition-colors leading-relaxed block"
+                    className="text-neutral-400 hover:text-gold-400 transition-colors leading-loose text-lg"
                   >
                     11 Place du Plessis Saucourt<br />
                     91250 Tigery, France
@@ -79,8 +86,10 @@ const Contact = () => {
 
                 {/* Phone */}
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Phone className="w-6 h-6 text-gold-500" />
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gold-500/10 flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-gold-500" />
+                    </div>
                     <h3 className="font-syne font-semibold text-xl text-white uppercase tracking-wide">
                       Téléphone
                     </h3>
@@ -88,7 +97,7 @@ const Contact = () => {
                   <a
                     href="tel:+33699393917"
                     data-testid="contact-phone-link"
-                    className="text-neutral-400 hover:text-gold-400 transition-colors text-lg"
+                    className="text-neutral-400 hover:text-gold-400 transition-colors text-xl"
                   >
                     +33 6 99 39 39 17
                   </a>
@@ -96,8 +105,10 @@ const Contact = () => {
 
                 {/* Instagram */}
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Instagram className="w-6 h-6 text-gold-500" />
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gold-500/10 flex items-center justify-center">
+                      <Instagram className="w-6 h-6 text-gold-500" />
+                    </div>
                     <h3 className="font-syne font-semibold text-xl text-white uppercase tracking-wide">
                       Instagram
                     </h3>
@@ -116,20 +127,19 @@ const Contact = () => {
 
                 {/* Hours */}
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Clock className="w-6 h-6 text-gold-500" />
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gold-500/10 flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-gold-500" />
+                    </div>
                     <h3 className="font-syne font-semibold text-xl text-white uppercase tracking-wide">
                       Horaires
                     </h3>
                   </div>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {hours.map((item) => (
-                      <li 
-                        key={item.day} 
-                        className="flex justify-between text-neutral-400 border-b border-white/5 pb-2"
-                      >
+                      <li key={item.day} className="flex justify-between text-neutral-500 border-b border-white/5 pb-3">
                         <span>{item.day}</span>
-                        <span className="text-white">{item.hours}</span>
+                        <span className="text-neutral-300">{item.hours}</span>
                       </li>
                     ))}
                   </ul>
@@ -142,9 +152,9 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid="contact-book-btn"
-                    className="btn-primary inline-flex items-center justify-center gap-2"
+                    className="btn-book inline-flex items-center justify-center gap-3"
                   >
-                    Réserver en ligne
+                    <span>Réserver en ligne</span>
                     <ArrowRight size={18} />
                   </a>
                   <a
@@ -152,7 +162,7 @@ const Contact = () => {
                     data-testid="contact-call-btn"
                     className="btn-secondary inline-flex items-center justify-center"
                   >
-                    Appeler
+                    <span>Appeler</span>
                   </a>
                 </div>
               </div>
@@ -163,10 +173,10 @@ const Contact = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-square lg:aspect-auto lg:h-full min-h-[400px] bg-surface overflow-hidden">
+              <div className="aspect-square lg:aspect-auto lg:h-full min-h-[500px] overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.8977!2d2.5165!3d48.6418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5e5c5c5c5c5c5%3A0x0!2s11%20Place%20du%20Plessis%20Saucourt%2C%2091250%20Tigery!5e0!3m2!1sfr!2sfr!4v1"
                   width="100%"
@@ -180,21 +190,21 @@ const Contact = () => {
                   data-testid="contact-map"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 border border-gold-500/30" />
+              <div className="absolute -bottom-4 -left-4 w-20 h-20 border-l-2 border-b-2 border-gold-500/30" />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Quick Contact */}
+      {/* Quick Contact Cards */}
       <section className="section-spacing bg-obsidian">
         <div className="section-container">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 icon: Phone,
                 title: "Appelez-nous",
-                desc: "Pour toute question ou réservation par téléphone",
+                desc: "Pour toute question ou réservation",
                 action: "tel:+33699393917",
                 label: "+33 6 99 39 39 17"
               },
@@ -220,17 +230,19 @@ const Contact = () => {
                 href={item.action}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noopener noreferrer" : undefined}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="service-card text-center group"
+                className="service-card text-center py-12 group"
               >
-                <item.icon className="w-10 h-10 text-gold-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <div className="w-14 h-14 mx-auto mb-6 bg-gold-500/10 flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
+                  <item.icon className="w-7 h-7 text-gold-500" />
+                </div>
                 <h3 className="font-syne font-semibold text-xl text-white uppercase tracking-wide mb-2">
                   {item.title}
                 </h3>
-                <p className="text-neutral-500 text-sm mb-4">{item.desc}</p>
+                <p className="text-neutral-600 text-sm mb-4">{item.desc}</p>
                 <span className="text-gold-400 text-sm inline-flex items-center gap-2">
                   {item.label}
                   {item.external && <ExternalLink size={14} />}
@@ -243,36 +255,33 @@ const Contact = () => {
 
       {/* Final CTA */}
       <section className="section-spacing bg-charcoal relative overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `url('https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
+        <div className="absolute inset-0 opacity-5">
+          <img 
+            src="https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="section-container relative z-10 text-center">
           <motion.div
-            initial="initial"
-            whileInView="animate"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={fadeInUp}
           >
-            <h2 className="font-syne font-bold text-3xl md:text-4xl text-white uppercase tracking-tight mb-6">
-              Prêt pour une<br />
-              <span className="gold-gradient-text">transformation ?</span>
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl text-white uppercase tracking-tight mb-4">
+              Prêt pour une
             </h2>
-            <p className="text-neutral-400 mb-10 max-w-xl mx-auto">
-              Réservez votre créneau et vivez l'expérience KLEAN Barbershop.
+            <p className="font-elegant text-2xl md:text-3xl text-gold-400 italic mb-10">
+              transformation ?
             </p>
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-testid="contact-cta-book-btn"
-              className="btn-primary inline-flex items-center gap-2"
+              className="btn-book inline-flex items-center gap-3"
             >
-              Réserver mon rendez-vous
+              <span>Réserver mon rendez-vous</span>
               <ArrowRight size={18} />
             </a>
           </motion.div>
