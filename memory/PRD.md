@@ -3,8 +3,18 @@
 ## Énoncé du problème original
 Création d'un site web TRÈS PREMIUM multi-pages pour **KLEAN Barbershop • Braids • Locks**, salon de barbier haut de gamme situé à Tigery (91250), France. Site entièrement en français, orienté conversion vers prise de rendez-vous.
 
-## Mise à jour (07/03/2026)
+## Mises à jour
+
+### Mise à jour Design (07/03/2026)
 Amélioration majeure du design pour un rendu encore plus luxueux inspiré des codes du luxe moderne : fond noir profond, détails dorés élégants, animations subtiles, grandes images immersives.
+
+### Mise à jour SEO & Conversion (07/03/2026)
+Optimisation complète pour le référencement local et la conversion :
+- Meta titles/descriptions SEO optimisés pour chaque page
+- Mots-clés : barbier Tigery, barbershop Essonne, coiffeur homme, tresses, locks
+- Widget d'avis Google avec note 5/5 sur page d'accueil
+- Système de tracking analytics (pages vues, clics réservation)
+- Schema.org LocalBusiness markup
 
 ## Architecture
 - **Frontend**: React 19 + React Router DOM v7
