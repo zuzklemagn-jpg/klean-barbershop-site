@@ -1,0 +1,125 @@
+{
+  "identity": {
+    "name": "KLEAN Barbershop • Braids • Locks",
+    "location": "Tigery, France",
+    "language": "fr",
+    "vibe": "Luxury, Masculine, Artistic, Sharp",
+    "booking_link": "https://klean-barbershop-booking.setmore.com/book"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Syne, sans-serif",
+      "body": "Manrope, sans-serif",
+      "accent": "Italiana, serif"
+    },
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap",
+    "scale": {
+      "h1": "text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase",
+      "h2": "text-3xl md:text-5xl font-bold tracking-tight uppercase",
+      "h3": "text-xl md:text-2xl font-semibold tracking-wide uppercase",
+      "body": "text-base md:text-lg leading-relaxed text-neutral-400",
+      "small": "text-sm tracking-widest uppercase text-gold-500"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": "#050505",
+      "surface": "#0F0F0F",
+      "surface_highlight": "#1A1A1A",
+      "primary": "#D4AF37",
+      "primary_foreground": "#000000",
+      "secondary": "#C5A028",
+      "text_main": "#FAFAFA",
+      "text_muted": "#A1A1AA",
+      "border": "#27272a"
+    },
+    "tailwind_config": {
+      "colors": {
+        "gold": {
+          "400": "#E5C158",
+          "500": "#D4AF37",
+          "600": "#C5A028"
+        },
+        "obsidian": "#050505",
+        "charcoal": "#0F0F0F"
+      }
+    }
+  },
+  "visual_enhancers": {
+    "radius": "rounded-none",
+    "shadows": "shadow-[0_0_30px_-10px_rgba(212,175,55,0.15)]",
+    "glass": "bg-neutral-900/50 backdrop-blur-md border border-white/5",
+    "grain_overlay": "opacity-[0.03] pointer-events-none fixed inset-0 z-50 mix-blend-overlay url('https://grainy-gradients.vercel.app/noise.svg')",
+    "gradients": {
+      "gold_text": "bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#E5C158] to-[#D4AF37]",
+      "dark_fade": "bg-gradient-to-b from-transparent via-obsidian/80 to-obsidian"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-gold-500 text-black font-bold uppercase tracking-widest px-8 py-4 hover:bg-white hover:scale-105 transition-all duration-300 rounded-none clip-path-slant",
+      "secondary": "border border-gold-500/30 text-gold-400 uppercase tracking-widest px-8 py-4 hover:bg-gold-500/10 transition-all duration-300 rounded-none",
+      "floating": "fixed bottom-6 right-6 z-50 bg-gold-500 text-black font-bold p-4 shadow-2xl rounded-full md:hidden animate-pulse-slow"
+    },
+    "cards": {
+      "service_card": "group relative bg-charcoal border border-white/5 p-8 hover:border-gold-500/30 transition-all duration-500 overflow-hidden",
+      "pricing_item": "flex justify-between items-baseline border-b border-white/5 py-4 group hover:border-gold-500/20 transition-colors"
+    },
+    "navigation": {
+      "wrapper": "fixed top-0 w-full z-40 bg-obsidian/80 backdrop-blur-lg border-b border-white/5",
+      "link": "text-sm uppercase tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-colors"
+    }
+  },
+  "layouts": {
+    "container": "max-w-[1400px] mx-auto px-6 md:px-12",
+    "section_spacing": "py-24 md:py-32",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8",
+    "grid_masonry": "columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
+  },
+  "pages": {
+    "home": {
+      "sections": ["Hero", "Intro", "ServicesPreview", "WhyUs", "Testimonials", "CTA"],
+      "hero_strategy": "Full screen dark cinematic video/image. Minimal text. Huge gold CTA 'RÉSERVER'.",
+      "bento_strategy": "Showcase top 3 services (Coupe, Barbe, Braids) in a 4-4-4 grid."
+    },
+    "services": {
+      "sections": ["PricingList", "VipPackages"],
+      "layout": "Two-column layout: Left sticky menu of categories, Right scrollable list of services."
+    },
+    "gallery": {
+      "sections": ["PhotoGrid"],
+      "layout": "Masonry grid with filter tabs (Coupes, Barbe, Braids, Locks)."
+    }
+  },
+  "image_urls": {
+    "hero_bg": "https://images.unsplash.com/photo-1503951914875-452162b7f300?q=80&w=2070&auto=format&fit=crop",
+    "barber_action": "https://images.pexels.com/photos/2775272/pexels-photo-2775272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "beard_trim": "https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "salon_interior": "https://images.pexels.com/photos/3993307/pexels-photo-3993307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "chair_detail": "https://images.pexels.com/photos/16372646/pexels-photo-16372646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "braids_placeholder": "https://images.unsplash.com/photo-1521146764736-56c929d59c83?q=80&w=1887&auto=format&fit=crop",
+    "locks_placeholder": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop"
+  },
+  "motion": {
+    "reduce_motion": "true",
+    "hover_effects": "scale-105 brightness-110",
+    "entrance": "fade-up duration-700 ease-out",
+    "scroll": "Use Lenis for smooth scrolling."
+  },
+  "instructions_to_main_agent": [
+    "INSTALL: 'lenis' for smooth scrolling.",
+    "INSTALL: 'framer-motion' for simple entrances.",
+    "INSTALL: 'lucide-react' for icons.",
+    "IMPORTANT: Set 'dark' class on the html element by default.",
+    "CRITICAL: Do NOT use standard Shadcn cards. Create custom div-based cards with the styles defined in 'components.cards'.",
+    "CRITICAL: Ensure the booking link opens in a new tab.",
+    "CRITICAL: Map Section must be styled dark (use a dark map overlay or CSS filter: grayscale(100%) invert(90%) contrast(85%))."
+  ],
+  "universal_guidelines": [
+    "Don't make generic centered layouts.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters.",
+    "NEVER use AI assistant Emojis.",
+    "Use 2-3x more spacing than feels comfortable."
+  ]
+}
