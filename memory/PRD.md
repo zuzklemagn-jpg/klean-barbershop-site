@@ -78,6 +78,12 @@ Site vitrine premium pour un salon de barbier haut de gamme proposant des coupes
 - [x] Google Maps intégré
 - [x] Audit complet passé avec succès
 
+### Améliorations UX (7 Mars 2026) ✅
+- [x] **Bouton sticky mobile** - "Réserver un rendez-vous" fixé en bas de l'écran
+- [x] **Section Horaires** - Affichée après le hero avec tous les jours de la semaine
+- [x] **Section Google Maps** - "Nous trouver" avec carte interactive
+- [x] **Section Instagram** - "Voir nos coupes sur Instagram" avec bouton CTA
+
 ### Prêt pour Déploiement ✅
 Tous les tests ont passé avec un taux de réussite de 100%.
 

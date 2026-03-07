@@ -7,7 +7,9 @@ import {
   Sparkles, 
   ChevronRight,
   Star,
-  Clock
+  Clock,
+  MapPin,
+  Instagram
 } from "lucide-react";
 import SEOHead from "../components/SEOHead";
 import BookButton from "../components/BookButton";
@@ -109,6 +111,63 @@ const Home = () => {
         {/* Decorative corners */}
         <div className="absolute bottom-20 left-10 w-20 h-20 border-l border-b border-gold-500/20 hidden lg:block" />
         <div className="absolute top-32 right-10 w-20 h-20 border-r border-t border-gold-500/20 hidden lg:block" />
+      </section>
+
+      {/* ==================== OPENING HOURS SECTION ==================== */}
+      <section data-testid="hours-section" className="py-16 md:py-20 bg-charcoal border-y border-white/5">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Clock size={24} className="text-gold-500" />
+                <h2 className="font-syne font-bold text-2xl md:text-3xl text-white uppercase tracking-tight">
+                  Horaires du salon
+                </h2>
+              </div>
+              <div className="gold-divider mx-auto" />
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
+              {[
+                { day: "Lundi", hours: "13:00–20:00" },
+                { day: "Mardi", hours: "10:00–20:00" },
+                { day: "Mercredi", hours: "10:00–20:00" },
+                { day: "Jeudi", hours: "10:00–20:00" },
+                { day: "Vendredi", hours: "10:00–20:00" },
+                { day: "Samedi", hours: "10:00–20:00" },
+                { day: "Dimanche", hours: "13:00–19:00" }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.day}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="bg-white/[0.02] border border-white/5 p-4 text-center hover:border-gold-500/30 transition-colors"
+                >
+                  <span className="block text-gold-400 font-semibold text-sm mb-1">{item.day}</span>
+                  <span className="block text-neutral-400 text-sm">{item.hours}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="text-center mt-8 text-gold-400 font-elegant text-lg italic"
+            >
+              Avec & sans rendez-vous
+            </motion.p>
+          </motion.div>
+        </div>
       </section>
 
       {/* ==================== INTRO SECTION ==================== */}
@@ -381,6 +440,106 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ==================== INSTAGRAM SECTION ==================== */}
+      <section data-testid="instagram-section" className="py-16 md:py-20 bg-obsidian">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Instagram size={28} className="text-gold-500" />
+            </div>
+            
+            <h2 className="font-syne font-bold text-2xl md:text-3xl text-white uppercase tracking-tight mb-4">
+              Voir nos coupes sur Instagram
+            </h2>
+            
+            <div className="gold-divider mx-auto mb-8" />
+            
+            <p className="text-neutral-400 mb-8 leading-relaxed">
+              Découvrez nos dernières réalisations, dégradés, tresses et coiffures afro sur notre page Instagram.
+            </p>
+            
+            <a
+              href="https://instagram.com/klean.barbershop_braids"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="instagram-cta-btn"
+              className="btn-secondary inline-flex items-center gap-3"
+            >
+              <Instagram size={18} />
+              <span>Voir sur Instagram</span>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ==================== GOOGLE MAPS SECTION ==================== */}
+      <section data-testid="maps-section" className="py-16 md:py-24 bg-charcoal">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <MapPin size={24} className="text-gold-500" />
+              <h2 className="font-syne font-bold text-2xl md:text-3xl text-white uppercase tracking-tight">
+                Nous trouver
+              </h2>
+            </div>
+            <div className="gold-divider mx-auto mb-6" />
+            <p className="text-neutral-400">
+              11 Place du Plessis Saucourt, 91250 Tigery
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative overflow-hidden border border-white/10"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2638.3!2d2.5114!3d48.6447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5e3c8e4d8c5e7%3A0x123456789abcdef!2s11%20Place%20du%20Plessis%20Saucourt%2C%2091250%20Tigery!5e0!3m2!1sfr!2sfr!4v1234567890"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="KLEAN Barbershop - Localisation"
+              className="w-full h-[300px] md:h-[400px]"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-8 text-center"
+          >
+            <a
+              href="https://maps.google.com/?q=11+Place+du+Plessis+Saucourt+91250+Tigery+France"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors text-sm uppercase tracking-wider"
+            >
+              <span>Ouvrir dans Google Maps</span>
+              <ChevronRight size={16} />
+            </a>
+          </motion.div>
         </div>
       </section>
 
