@@ -1,89 +1,90 @@
-# KLEAN Barbershop - Site Web Premium
+# KLEAN Barbershop - Product Requirements Document
 
-## Énoncé du problème original
-Création d'un site web TRÈS PREMIUM multi-pages pour **KLEAN Barbershop • Braids • Locks**, salon de barbier haut de gamme situé à Tigery (91250), France. Site entièrement en français, orienté conversion vers prise de rendez-vous.
+## Informations Générales
+- **Projet:** Site web premium pour KLEAN Barbershop
+- **Client:** KLEAN Barbershop • Braids • Locks
+- **Localisation:** 11 Place du Plessis Saucourt, 91250 Tigery, France
+- **Langue:** Français
+- **Dernière mise à jour:** 7 Mars 2026
 
-## Mises à jour
+## Description
+Site vitrine premium pour un salon de barbier haut de gamme proposant des coupes, dégradés, soins de barbe, tresses et locks. Design luxueux noir (#0A0A0A) et or (#C8A46B) avec une expérience utilisateur fluide.
 
-### Mise à jour Design (07/03/2026)
-Amélioration majeure du design pour un rendu encore plus luxueux inspiré des codes du luxe moderne : fond noir profond, détails dorés élégants, animations subtiles, grandes images immersives.
+## Architecture Technique
+- **Frontend:** React 18 avec Create React App
+- **Styling:** TailwindCSS
+- **Animations:** Framer Motion
+- **SEO:** React Helmet Async
+- **Galerie:** React Image Lightbox
+- **Backend:** N/A (site statique frontend-only)
+- **Base de données:** N/A
 
-### Mise à jour SEO & Conversion (07/03/2026)
-Optimisation complète pour le référencement local et la conversion :
-- Meta titles/descriptions SEO optimisés pour chaque page
-- Mots-clés : barbier Tigery, barbershop Essonne, coiffeur homme, tresses, locks
-- Widget d'avis Google avec note 5/5 sur page d'accueil
-- Système de tracking analytics (pages vues, clics réservation)
-- Schema.org LocalBusiness markup
+## Pages Implémentées
+1. **Accueil** (`/`) - Hero, intro, services preview, avis Google, ambiance
+2. **Prestations** (`/prestations`) - Tarifs détaillés par catégorie
+3. **Expérience VIP** (`/experience-vip`) - Services premium et à domicile
+4. **Galerie** (`/galerie`) - Portfolio filtrable avec lightbox
+5. **À propos** (`/a-propos`) - Histoire et équipe
+6. **Avis** (`/avis`) - Témoignages clients
+7. **FAQ** (`/faq`) - Questions fréquentes (10 accordéons)
+8. **Contact** (`/contact`) - Formulaire, Google Maps, coordonnées
 
-## Architecture
-- **Frontend**: React 19 + React Router DOM v7
-- **Styling**: Tailwind CSS 3.4 + CSS personnalisé
-- **Animations**: Framer Motion
-- **Composants UI**: Shadcn/UI (Accordion, etc.)
-- **Typographie**: Syne (titres) + Manrope (corps)
-- **Palette**: Noir (#050505, #0F0F0F) + Or (#D4AF37)
+## Fonctionnalités Clés
+- [x] Design premium noir et or
+- [x] Navigation responsive (desktop/tablette/mobile)
+- [x] Menu hamburger mobile avec animations
+- [x] Boutons "Réserver" omnipresents (lien Setmore externe)
+- [x] Galerie filtrable par catégorie avec lightbox
+- [x] Widget Google Reviews (40+ avis)
+- [x] Google Maps intégré
+- [x] SEO optimisé (méta titres/descriptions)
+- [x] Tracking analytics (clics, pages vues)
+- [x] Lazy loading des images
+- [x] Animations smooth avec Framer Motion
 
-## Personas utilisateurs
-1. **Client potentiel homme** - Cherche un barbershop premium à Tigery/Essonne
-2. **Client existant** - Revient pour réserver un nouveau rendez-vous
-3. **Client afro** - Recherche expertise tresses, locks, twists
+## Intégrations Externes
+- **Réservation:** https://klean-barbershop-booking.setmore.com/book
+- **Instagram:** @klean.barbershop_braids
+- **Téléphone:** +33 6 99 39 39 17
+- **Google Maps:** 11 Place du Plessis Saucourt, 91250 Tigery
 
-## Exigences principales (statiques)
-- Site 100% français
-- Design luxe noir/doré
-- Multi-pages (8 pages)
-- Bouton réservation omniprésent
-- Lien externe Setmore
-- Google Maps intégré
-- Responsive mobile-first
-- SEO local optimisé
+## Fichiers Clés
+- `/app/frontend/src/config/images.js` - Configuration centralisée des images
+- `/app/frontend/src/components/Navigation.jsx` - Navigation avec logo
+- `/app/frontend/src/components/Footer.jsx` - Footer avec contacts
+- `/app/frontend/src/components/SEOHead.jsx` - Composant SEO
+- `/app/frontend/src/components/BookButton.jsx` - Bouton de réservation
 
-## Fonctionnalités implémentées ✅ (07/03/2026)
+## Contenu Final Validé
+- **Logo:** KleanLogo.jpg (vert avec couronne dorée et "KK")
+- **Slogan:** "Wear your crown & Stay Klean"
+- **Description hero:** "Salon de coiffure Barbier, Afro & VIP HomeService. Avec & sans rendez-vous"
+- **Avis:** 40+ avis Google
 
-### Pages
-- [x] **Accueil** - Hero, intro, services preview, why us, témoignages, CTA
-- [x] **Prestations & Tarifs** - Liste complète des prix (coupes, rasage, afro, VIP)
-- [x] **Expérience VIP** - Forfait premium 250€/3h détaillé
-- [x] **Galerie** - Grid photos avec filtres par catégorie + lightbox
-- [x] **À propos** - Histoire, valeurs, cadre du salon
-- [x] **Avis clients** - 9 témoignages + statistiques
-- [x] **FAQ** - 10 questions avec accordéons interactifs
-- [x] **Contact** - Adresse, téléphone, horaires, Maps, liens sociaux
+## Statut du Projet
 
-### Composants
-- [x] Navigation responsive (desktop + mobile hamburger)
-- [x] Footer complet avec toutes informations
-- [x] Bouton flottant réservation (mobile)
-- [x] Animations d'entrée fluides
+### Complété ✅
+- [x] Design premium noir et or
+- [x] Toutes les 8 pages fonctionnelles
+- [x] Logo mis à jour (KleanLogo.jpg)
+- [x] Textes hero mis à jour
+- [x] "40+ avis" affiché
+- [x] Nouvelles images intégrées (taper2.jpg, tondeuses.jpg)
+- [x] Bug BOOKING_URL corrigé sur 4 pages
+- [x] Responsive design vérifié
+- [x] Navigation testée
+- [x] Boutons de réservation fonctionnels
+- [x] Galerie avec filtres et lightbox
+- [x] Google Maps intégré
+- [x] Audit complet passé avec succès
 
-### Intégrations
-- [x] Setmore (réservation externe) - ouvre nouvel onglet
-- [x] Google Maps embed (filtré dark)
-- [x] Instagram link
+### Prêt pour Déploiement ✅
+Tous les tests ont passé avec un taux de réussite de 100%.
 
-## Backlog priorisé
+## URL de Prévisualisation
+https://coiffure-premium.preview.emergentagent.com
 
-### P0 - Critique (Terminé)
-- ✅ Structure multi-pages
-- ✅ Design premium noir/doré
-- ✅ Boutons réservation fonctionnels
-- ✅ Responsive mobile
-
-### P1 - Important (Futur)
-- [ ] Ajouter les vraies photos du salon/coupes (remplacer placeholders)
-- [ ] Optimiser images (compression, lazy loading avancé)
-- [ ] Meta tags SEO complets par page
-- [ ] Schema.org LocalBusiness markup
-
-### P2 - Nice to have
-- [ ] Intégration avis Google
-- [ ] Animations scroll parallax
-- [ ] Mode sombre/clair toggle
-- [ ] Blog/actualités
-
-## Prochaines étapes
-1. Remplacer les images placeholder par les vraies photos du salon
-2. Ajouter les meta descriptions SEO pour chaque page
-3. Configurer Google Analytics
-4. Soumettre sitemap aux moteurs de recherche
+## Notes de Déploiement
+- Site frontend-only, pas de backend requis
+- Images hébergées sur customer-assets.emergentagent.com
+- Réservation via service externe Setmore
