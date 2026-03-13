@@ -184,7 +184,7 @@ const Gallery = () => {
           >
             <p className="text-center text-neutral-400 text-sm">
               <span className="text-gold-400 font-medium">Note :</span> Wear your Crown & Stay Klean{" "}
-              <code className="bg-black/30 px-2 py-1 text-gold-400 text-xs">/src/config/images.js</code>
+              <code className="bg-black/30 px-2 py-1 text-gold-400 text-xs">K L E A N   B A R B E R S H O P</code>
             </p>
           </motion.div>
         </div>
