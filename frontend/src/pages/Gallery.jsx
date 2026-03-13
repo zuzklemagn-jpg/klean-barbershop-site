@@ -183,8 +183,7 @@ const Gallery = () => {
             className="mt-16 p-6 border border-gold-500/20 bg-gold-500/5"
           >
             <p className="text-center text-neutral-400 text-sm">
-              <span className="text-gold-400 font-medium">Note :</span> Ces images sont des placeholders. 
-              Pour ajouter vos vraies photos, modifiez le fichier{" "}
+              <span className="text-gold-400 font-medium">Note :</span> Wear your Crown & Stay Klean{" "}
               <code className="bg-black/30 px-2 py-1 text-gold-400 text-xs">/src/config/images.js</code>
             </p>
           </motion.div>
