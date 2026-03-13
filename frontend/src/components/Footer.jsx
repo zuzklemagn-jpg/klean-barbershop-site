@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Phone, Instagram, Clock, ArrowRight } from "lucide-react";
 import { KLEAN_IMAGES } from "../config/images";
 
-const BOOKING_URL = "https://klean-barbershop-booking.setmore.com/book";
+const BOOKING_URL = "https://www.planity.com/klean-barbershop-braids-locks-91250-tigery";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
