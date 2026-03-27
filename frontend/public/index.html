@@ -1,28 +1,45 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#D4AF37" />
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#D4AF37" />
 
-        <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
 
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
 
-        <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
-       
-        <title>KLEAN Barbershop Tigery | Coiffeur Premium Essonne</title>
-        <meta name="description" content="Klean Barbershop, coiffeur barbier premium à Tigery près de Carré Sénart. Dégradé, taille de barbe, soins VIP. Réservez votre rendez-vous en ligne.">
-        <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
-        
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-    </body>
-</html>
+    <title>KLEAN Barbershop Tigery | Coiffeur Premium Essonne</title>
+    <meta
+        name="description"
+        content="Klean Barbershop, coiffeur barbier premium à Tigery près de Carré Sénart. Dégradé, taille de barbe, soins VIP. Réservez votre rendez-vous en ligne."
+    />
+
+    <meta property="og:title" content="KLEAN Barbershop Tigery | Coiffeur Premium Essonne" />
+    <meta property="og:description" content="Klean Barbershop, coiffeur barbier premium à Tigery près de Carré Sénart. Dégradé, taille de barbe, soins VIP. Réservez votre rendez-vous en ligne." />
+    <meta property="og:image" content="https://kleanbarbershop.fr/apple-touch-icon.png" />
+    <meta property="og:url" content="https://kleanbarbershop.fr" />
+    <meta property="og:type" content="website" />
+
+    <script>
+        window.addEventListener(
+            "error",
+            function (e) {
+                if (
+                    e.error instanceof DOMException &&
+                    e.error.name === "DataCloneError" &&
+                    e.message &&
+                    e.message.includes("PerformanceServerTiming")
+                ) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                }
+            },
+            true
+        );
+    </script>
+</head>
